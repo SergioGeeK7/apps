@@ -1,0 +1,39 @@
+td img {
+
+    width: 50px;
+    height: 50px;
+    border:0;
+
+
+}
+#popup {
+    left: 0;
+    position: absolute;
+    top: -35px;
+    width: 100%;
+    z-index: 1001;
+}
+
+.content-popup {
+    margin:0px auto;
+    margin-top:30px;
+    padding:10px;
+    width:140px;
+    min-height:140px;
+    border-radius:5px;
+    /*background-color:#FFFFFF;*/
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 2px 5px #666666;
+}
+
+#zoomfoto{
+    height: 120px;
+    width: 120px;
+}
+
+.close {
+    position:relative;
+    left:120px;
+    height: 16px;
+    width: 16px;
+}

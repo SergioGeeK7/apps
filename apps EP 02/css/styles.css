@@ -1,0 +1,297 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	line-height: 14px;
+	color: #666;
+}
+
+/* Grid */
+*, *:before, *:after {
+	box-sizing:border-box;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.box {
+	overflow: hidden;
+	clear: both;
+}
+
+[class*="span"] {
+	float: left;
+	position: relative;
+}
+
+.span1 {
+	width: 5%;
+}
+ 
+.span2 {
+	width: 10%;
+}
+
+/* .... copiar y pegar hasta 20 ...*/
+.span20 {
+	width: 100%;
+}
+
+/* Header */
+header {
+	background: url(../img/fondo.png) 10% 50% no-repeat;
+	border-top: 10px solid #D31145;
+	border-bottom: 10px solid #00ACA2;
+	padding: 10px 0;
+	overflow: hidden;
+}
+
+.main-title {
+	background: #00ACA2;
+	color: white;
+	line-height: 16px;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 4px 20px;
+	border-radius: 0 10px 10px 0;
+	margin: 30px 0 0;
+}
+
+
+/* Menu */
+#nav-bar {
+	background: url(../img/bg-nav-bar.jpg) 0 100% repeat-x;
+}
+
+.menu {
+	display: inline-block;
+}
+.menu ul {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+
+.menu li {
+	display: inline-block;
+}
+
+.menu a, .login a {
+	display: block;
+	height: 60px;
+	color: #666;
+	line-height: 20px;
+	padding: 4px 10px;
+	text-decoration: none;
+}
+
+.menu a > span, .login a > span {
+	display: block;
+	height: 30px;
+	text-align: center;
+}
+
+.menu a:hover, .login a:hover {
+	color: black;
+}
+
+.login {
+	float: right;
+}
+
+/*Submain */
+#title-bar {
+	background: url(../img/bg-nav-title.jpg) 0 100% repeat-x;
+	text-align: right;
+	padding: 5px 10px;
+	color: white;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+/* Main */
+#main {
+	background-image: url(../img/fondo-center.png);
+	background-repeat: no-repeat;
+	background-position: 50% 0;
+	padding: 20px;
+}
+.content {
+	width: 100%;
+	overflow: hidden;
+}
+.content-main {
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.content-btn {
+	width: 100px;
+	height: 140px;
+	display: inline-block;
+	position: relative;
+	background: #f1f2f3; /**/
+	border: 2px solid #fff; /**/
+	padding: 10px;
+	
+}
+
+/* especial */
+.especial {
+	padding: 10px;
+	border: 1px solid #009890;
+}
+.especial h1,
+.especial h2,
+.especial h3,
+.especial h4,
+.especial h5,
+.especial h6 {
+	color: #D31145;
+	margin:0;
+}
+
+.readmore {
+	text-decoration: none;
+	color: #666;
+	font-weight: bold;
+}
+
+	
+
+/* footer */
+footer {
+	padding: 30px 20px 10px;
+	text-align: center;
+	font-weight: bold;
+}
+
+/* form */
+form {}
+
+form > div {
+	margin-bottom: 10px;
+}
+
+[type="text"],
+[type="password"],
+[type="email"],
+[type="date"],
+[type="number"],
+[type="color"] {
+	border: 1px solid #999;
+	background: white;
+	width: 100%;
+	padding: 6px 10px;
+}
+
+[type="submit"] {
+	background: #009991;
+	border: none;
+	color: white;
+	padding: 6px 20px;
+}
+
+form .message {
+	background-image: url(../img/sprite.png);
+	background-repeat: no-repeat;
+	line-height: 20px;
+	padding: 0 0 0 30px;
+	margin-top: 4px;
+}
+
+form .error {
+	background-position: 0 0;
+	color: red;
+}
+
+form .success {
+	background-position: 0 -30px;
+	color: green;
+}
+
+/* table */
+table {
+	width: 100%;
+}
+
+thead {
+	background: #D31145;
+	border: 1px solid #D31145;
+	color: white;
+}
+
+th {
+	padding: 10px;
+}
+
+tbody {
+	border-right: 1px solid #999;
+	border-bottom: 1px solid #999;
+}
+
+td {
+	border-left: 1px solid #999;
+	border-top: 1px solid #999;
+	text-align: center;
+}
+
+tbody tr:nth-child(n) {
+	background: white;
+}
+tbody tr:nth-child(2n) {
+	background: #ccc;
+}
+
+/* icon */
+.icon {
+	background-image: url(../img/sprite.png);
+	background-repeat: no-repeat;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin: 0 4px;
+}
+
+.icon.pencil {
+	background-position: 0 -60px;
+}
+.icon.pencil:hover {
+	background-position: -20px -60px;
+}
+
+.icon.delete {
+	background-position: 0 -90px;
+}
+.icon.delete:hover {
+	background-position: -20px -90px;
+}
+
+/* misc */
+.text-center {
+	text-align: center;
+}
+.pull-left {
+	float: left
+}
+.pull-right {
+	float: right;
+}
+
+/* media query */
+@media only screen and (max-width: 481px) {
+	.main-title {
+		margin: 0 0 10px;
+	}
+
+	.pull-right {
+		display: block;
+		float: none;
+		text-align: center;
+	}
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "carnet": "1",
+    "nombres": "carlos alberto",
+    "apellidos": "calero",
+    "cedula": "1152668745",
+    "telefono": "32147483647",
+    "foto": "fotos/carlos.png"
+  },
+  {
+    "carnet": "2",
+    "nombres": "maria sara",
+    "apellidos": "alzate ramirez",
+    "cedula": "1556897562",
+    "telefono": "3147483647",
+    "foto": "fotos/maria.png"
+  },
+  {
+    "carnet": "3",
+    "nombres": "sergio andres",
+    "apellidos": "arboleda cardona",
+    "cedula": "1152689760",
+    "telefono": "3206181329",
+    "foto": "fotos/sergio.png"
+  },
+  {
+    "carnet": "4",
+    "nombres": "fabio andres ",
+    "apellidos": "coentrao",
+    "cedula": "2147483647",
+    "telefono": "32047483647",
+    "foto": "fotos/fabio.png"
+  },
+  {
+    "carnet": "5",
+    "nombres": "camila maria",
+    "apellidos": "bedolla hernandez",
+    "cedula": "1156885980",
+    "telefono": "32047483647",
+    "foto": "fotos/camila.png"
+  }
+]
