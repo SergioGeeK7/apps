@@ -48,16 +48,16 @@ div.tabs_content > div {/*padding:20px;*/}
     box-shadow: 0 2px 5px #666666;
 }
 
+#zoomfoto{
+    height: 150px;
+    width: 150px;
+}
+
 .close {
     position:relative;
     left:150px;
     height: 16px;
     width: 16px;
 }
-/*td img a :link,td img a :visited,td img a :hover,td img a :active {
-
-text-decoration:none;
-
-}*/
 
 

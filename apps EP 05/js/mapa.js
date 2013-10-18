@@ -47,23 +47,7 @@
 				});
 
 				infowindow.open(mapa,puntero);
-				//---- cargar vendedor
-
-				var vendedor;
-				$.ajax({
-			    url: 'managetables.php',
-			    type: 'POST',
-			    dataType: 'json',
-			    error: function (error){console.log(error);},
-			    success: function(datos){
-			    	
-			    	vendedor = datos;
-			    	mostrarVendedor(vendedor,ubicacion);
-				}
-
-				});
-
-				//---- end carga vendedor
+				cargarVendedores(6.231128,-75.583291);
 
 				//------------------configurar popup img-------------------------
 
@@ -79,7 +63,8 @@
 				 google.maps.event.addListener(mapa, "click", function(evento) {
 			     // Obtengo las coordenadas como objeto latLng || evento.latLng
 			     puntero.setPosition(evento.latLng);
-			     mostrarVendedor(vendedor,evento.latLng);
+
+			     cargarVendedores(evento.latLng.lat(),evento.latLng.lng());
 			     
 			     }); //----------------------------- CAPTURA LOCALIZACION
 
@@ -91,15 +76,29 @@
 		}
 
 
+		function cargarVendedores (lat,lng){
+
+			 $.ajax({
+			    url: 'managetables.php',
+			    data: {
+						lat:lat,
+						lng:lng
+				},
+			    type: 'POST',
+			    dataType: 'json',
+			    error: function (error){
+			    borrarMarcadores();
+			    $('#mensaje').html(" <p> No hay vendedores cercanos </p>...");
+			    },
+			    success:mostrarVendedor
+			});
+
+
+		}
+
 		//----------------------------- CREAR TABLA Y AGREGAR MARKERS
-		function mostrarVendedor (vendedor,latLng){
-
-		// limpiar markers anteriores
-	     for (var i in markers){
-	     	markers[i].setPosition(null);
-	     }
-
-	     
+		function mostrarVendedor (vendedor){
+		 borrarMarcadores();
 	     $('#mensaje').html("");
 
 	     var $table = $('<table>');
@@ -113,13 +112,7 @@
 
 	     for (var i in vendedor){
 
-	     	var lng = vendedor[i].zona_lng.split(',');
-	     	var ubicacion=new google.maps.LatLng(lng[0],lng[1]);
-		     if (google.maps.geometry.spherical.computeDistanceBetween(latLng,ubicacion,150)
-		     	<0.0035000000000000000){
-
 				// add row
-				
 				var $tr = $tbody.append('<tr />').children('tr:last');
 
 				$tr.append("<td>"+vendedor[i].nombre+"</td>")
@@ -130,28 +123,19 @@
 				marks2(vendedor[i],$tr);
 				$table.appendTo('#mensaje');
 				
-
 				
 		     }
 
 
-	    }
+	    }///----------------------------- CREAR TABLA Y AGREGAR MARKERS
 
-	     if ($('#mensaje').text()=="") {
-	     	
-	     	$('#mensaje').html(" <p> No hay vendedores cercanos </p>...");
-	     	 
-	     }
-
-
-		} ///----------------------------- CREAR TABLA Y AGREGAR MARKERS
 
 		// DIBUJAR vendedor
 		function marks2(vendedor,tr){
 
-			var lng = vendedor.zona_lng.split(',');
+			var ubicacion=new google.maps.LatLng(vendedor.lat,vendedor.lng);
 			var image = 'img/market.png';
-		    var ubicacion=new google.maps.LatLng(lng[0],lng[1]);
+		    
 
 			var puntero=new google.maps.Marker({
 			position:ubicacion,
@@ -170,7 +154,7 @@
 
 			});
 
-			// CUANDO SE HAGA CLICK EN LA IMG HACER ZOOM
+			// pop up img
 			tr.click(function (){
 				//$("#zoomfoto").html("<img src='"+vendedor.fotos+"' />");
 				$("#zoomfoto").attr("src",vendedor.fotos);
@@ -181,5 +165,12 @@
 	     	markers.push(puntero);
 
 
-
 		}// ----- END DIBUJAR VENDEDOR
+
+		function borrarMarcadores (){
+		// limpiar markers anteriores
+	     for (var i in markers){
+	     	markers[i].setPosition(null);
+	     }
+	     
+		}
