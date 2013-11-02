@@ -91,6 +91,7 @@
 			    $('#mensaje').html(" <p> No hay vendedores cercanos </p>...");
 			    },
 			    success:mostrarVendedor
+			    
 			});
 
 
