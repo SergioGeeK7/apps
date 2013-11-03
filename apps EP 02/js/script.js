@@ -16,7 +16,10 @@ $(document).on("ready",function(){
 					if (consulta != null) {
 						crearTabla(consulta);
 					}else{
-						$("#mensaje").append("<p> No hay ningun funcionario que coincida </p>")
+						var empy = $("<p> No hay ningun funcionario que coincida </p>");
+						$("#mensaje").append(empy);
+						empy.fadeOut(2200);
+
 					}
 
 
