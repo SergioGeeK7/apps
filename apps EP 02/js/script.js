@@ -1,5 +1,20 @@
 $(document).on("ready",function(){
 
+	// validacion de campo numerico
+	$("#carnet").keyup(function(){
+		
+		var message = $(this).next();
+		if( isNaN($(this).val()) ) {
+			message.html("Información inválida");
+  			message.attr('class',"message error");
+		}else{
+			message.html("Informacion Valida");
+			message.attr('class',"message success");
+		}
+
+	});
+
+	// envio de formulario
 	$("form").submit(function(event){
 
 		event.preventDefault();
@@ -11,7 +26,7 @@ $(document).on("ready",function(){
                 success: function(datos){
                     
                     var carnet = $("#carnet").val();
-					var consulta = validar(datos,carnet);
+					var consulta = find(datos,carnet);
 
 					if (consulta != null) {
 						crearTabla(consulta);
@@ -30,8 +45,7 @@ $(document).on("ready",function(){
 
 	});
 
-
-	function validar (datos,carnet){
+	function find (datos,carnet){
 
 
 		for (var i in datos){
